@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login form</title>
+     <style>
+        .min{
+            height: 350px;
+            width: 450px;
+            background-color: whitesmoke;
+            border: 2px solid whitesmoke;
+            margin-left: 450px;
+        }
+        .txt1{
+             margin-top: 50px;
+            text-align: center;
+        }
+        .txt2{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: medium;
+            font-weight: 100;
+            text-align: center;
+        }
+        .email{
+             margin-left: 130px;
+        }
+
+        .pwd{
+            margin-left: 106px;
+        }
+        .txt3{
+            font-size: small;
+            text-align: end;
+            margin-right: 95px;
+        }
+        .txt3:hover{
+            color: red;
+            font-size: x-small;
+
+        }
+        .box2{
+            margin-top: 30px;
+        }
+        .btn{
+        height: 30px;
+        width: 250px;
+        margin-left: 100px;
+        background-color: blue;
+        }
+        .btn:hover{
+            background-color: aliceblue;
+        }
+        .txt4{
+            font-size: small;
+            color: gray;
+            margin-left: 150px;
+            
+        }
+
+     </style>
+</head>
+<body>
+    <div class="min">
+
+        <h1 class="txt1">Welcome back</h1>
+        <h4 class="txt2">welcome back! please enter your details</h4>
+
+        <label  class="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+       
+
+        <div class="box2"><label  class="pwd">Password:</label>
+        <input type="text" id="password" name="password" placeholder="Enter your password" required></div>
+        <h3 class="txt3"> forgot password</h3> 
+        
+        <button class="btn" type="submit">sign in</button>
+        <h6 class="txt4"> don't have an account sign up</h6>
+
+    </div>
+    
+    </body>
+</html>
