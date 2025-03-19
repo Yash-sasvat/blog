@@ -1,304 +1,446 @@
-<!-- index.html -->
-<!DOCTYPE html> 
-<html lang="en"> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Posts Grid</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* style.css */
-body {
-    font-family: Arial, sans-serif;
-    margin: 3rem;
-}
+        body {
+            background-color: #f5f5f5;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+        }
+        
+        .blog-heading {
+            padding: 20px 0;
+            font-weight: 700;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 0;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-img-top {
+            border-radius: 0;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .author-date {
+            font-size: 0.8rem;
+            color: #6941C6;
+            margin-bottom: 5px;
+        }
+        
+        .card-title {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #101828;
+        }
+        
+        .card-text {
+            font-size: 0.9rem;
+            color: #667085;
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            margin-right: 6px;
+            margin-top: 10px;
+            background-color: #f8f9fa;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #495057;
+        }
+        
+        .arrow-icon {
+            margin-left: 5px;
+            font-size: 0.8rem;
+        }
+        
+        .pagination {
+            margin-top: 20px;
+        }
+        
+        .page-link {
+            color: #212529;
+            border: none;
+            padding: 8px 16px;
+        }
+        
+        .page-item.active .page-link {
+            background-color: #212529;
+            border-color: #212529;
+        }
+        
+        .page-posts {
+            display: none;
+        }
+        
+        .page-posts.active {
+            display: flex;
+        }
+        .tag {
+        display: inline-block;
+        padding: 5px 10px;
+        font-size: 14px;
+        border-radius: 5px;
+        margin-top: 5px;
+        text-decoration: none;
+        
+    }
+    .arrow-icon {
+        float: right;
+    }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.pagination {
-    text-align: center;
-    margin-top: 2rem;
-}
-
-.pagination a {
-    color: #007BFF;
-    padding: 8px 16px;
-    text-decoration: none;
-    border: 1px solid #007BFF;
-    margin: 0 5px;
-    border-radius: 4px;
-}
-
-.pagination a:hover {
-    background-color: #007BFF;
-    color: white;
-}
-
-.pagination .active {
-    background-color: #007BFF;
-    color: white;
-}
-
-.card-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-}
-
-.card {
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 20px 0px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    text-align: center;
-}
-
-.card img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-    border-radius: 10px;
-}
-
-h3 {
-    margin-top: 10px;
-    font-size: 18px;
-    text-transform: capitalize;
-}
-
-h1 {
-    text-align: center;
-    margin: 2rem;
-}
-
-p {
-    font-size: 14px;
-}
-
-#page-numbers {
-    margin-top: 20px;
-    font-size: 16px;
-}
-
+    .management { background: #e0f2ff; color: #007bff; }
+    .leadership { background: #f0e0ff; color: #6a0dad; }
+    .product { background: #dfffe0; color: #2c7a2c; }
+    .research { background: #f0e0ff; color: #6a0dad; }
+    .frameworks { background: #ffe0e0; color: #d9534f; }
+    .design { background: #e0f2ff; color: #007bff; }
+    .software { background: #e5ffcc; color: #2c7a2c; }
+    .tools { background: #ffe5cc; color: #d9534f; }
+    .saas { background: #e0e0ff; color: #6a0dad; }
+    .podcasts { background: #ccf2ff; color: #007bff; }
+    .customer { background: #f2ccff; color: #6a0dad; }
     </style>
-
-<head> 
-	<meta charset="UTF-8"> 
-	<meta name="viewport" content= 
-		"width=device-width, initial-scale=1.0"> 
-	<title>Pagination Example</title> 
-	<link rel="stylesheet" href="style.css"> 
-</head> 
-
-<body> 
-	<div id="data-container"> 
-		<h1> Pagination in HTML CSS & JavaScript</h1> 
-		<div class="card-container"> 
-			<div class="card"> 
-				<img src= 
-"https://media.geeksforgeeks.org/img-practice/banner/mern-full-stack-development-classroom-thumbnail.png?v=19630"
-					alt="Image 1"> 
-				<h3>mern full stack development classroom</h3> 
-				<p>This is the content of Card 1.</p> 
-			</div> 
-			<div class="card"> 
-				<img src= 
-"https://media.geeksforgeeks.org/img-practice/banner/devops-live-thumbnail.png?v=19630"
-					alt="Image 2"> 
-				<h3>Dev Ops Live</h3> 
-				<p>This is the content of Card 2.</p> 
-			</div> 
-			<div class="card"> 
-				<img src= 
-"https://media.geeksforgeeks.org/img-practice/banner/gate-data-science-and-artificial-intelligence-da-2024-thumbnail.png?v=19630"
-					alt="Image 3"> 
-				<h3>Gate Date science and artificial intelligence</h3> 
-				<p>This is the content of Card 3.</p> 
-			</div> 
-			<div class="card"> 
-				<img src= 
-"https://media.geeksforgeeks.org/img-practice/banner/gate-crash-course-2024-thumbnail.png?v=19630"
-					alt="Image 4"> 
-				<h3>gate crash course 2024 </h3> 
-				<p>This is the content of Card 4.</p> 
-			</div> 
-			<div class="card"> 
-				<img src= 
-"https://media.geeksforgeeks.org/img-practice/banner/complete-test-series-product-companies-thumbnail.png?v=19631"
-					alt="Image 5"> 
-				<h3>complete test series product companies</h3> 
-				<p>This is the content of Card 5.</p> 
-			</div> 
-			<div class="card"> 
-				<img src= 
-"https://media.geeksforgeeks.org/img-practice/banner/dsa-to-development-coding-guide-thumbnail.png?v=19630"
-					alt="Image 6"> 
-				<h3>dsa to development coding guide</h3> 
-				<p>This is the content of Card 6.</p> 
-			</div> 
-			<div class="card"> 
-				<img src= 
-"https://media.geeksforgeeks.org/img-practice/banner/geeks-classes-live-thumbnail.png?v=19630"
-					alt="Image 7"> 
-				<h3>geeks classes live</h3> 
-				<p>This is the content of Card 7.</p> 
-			</div> 
-			<div class="card"> 
-				<img src= 
-"https://media.geeksforgeeks.org/img-practice/banner/dsa-interview-preparation-classroom-thumbnail.png?v=19631"
-					alt="Image 8"> 
-				<h3>dsa interview preparation classroom</h3> 
-				<p>This is the content of Card 8.</p> 
-			</div> 
-			<div class="card"> 
-				<img src= 
-"https://media.geeksforgeeks.org/img-practice/banner/complete-interview-preparation-thumbnail.png?v=19631"
-					alt="Image 9"> 
-				<h3>complete interview preparation</h3> 
-				<p>This is the content of Card 9.</p> 
-			</div> 
-			<div class="card"> 
-				<img src= 
-"https://media.geeksforgeeks.org/img-practice/banner/Data-Structures-With-Python-thumbnail.png?v=19631"
-					alt="Image 10"> 
-				<h3>Data Structures With Python</h3> 
-				<p>This is the content of Card 10.</p> 
-			</div> 
-            <div class="card"> 
-				<img src= 
-"https://media.geeksforgeeks.org/img-practice/banner/mern-full-stack-development-classroom-thumbnail.png?v=19630"
-					alt="Image 1"> 
-				<h3>mern full stack development classroom</h3> 
-				<p>This is the content of Card 1.</p> 
-			</div> 
-			<div class="card"> 
-				<img src= 
-"https://media.geeksforgeeks.org/img-practice/banner/devops-live-thumbnail.png?v=19630"
-					alt="Image 2"> 
-				<h3>Dev Ops Live</h3> 
-				<p>This is the content of Card 2.</p> 
-			</div> 
-			<div class="card"> 
-				<img src= 
-"https://media.geeksforgeeks.org/img-practice/banner/gate-data-science-and-artificial-intelligence-da-2024-thumbnail.png?v=19630"
-					alt="Image 3"> 
-				<h3>Gate Date science and artificial intelligence</h3> 
-				<p>This is the content of Card 3.</p> 
-			</div> 
-			<div class="card"> 
-				<img src= 
-"https://media.geeksforgeeks.org/img-practice/banner/gate-crash-course-2024-thumbnail.png?v=19630"
-					alt="Image 4"> 
-				<h3>gate crash course 2024 </h3> 
-				<p>This is the content of Card 4.</p> 
-			</div> 
-			<div class="card"> 
-				<img src= 
-"https://media.geeksforgeeks.org/img-practice/banner/complete-test-series-product-companies-thumbnail.png?v=19631"
-					alt="Image 5"> 
-				<h3>complete test series product companies</h3> 
-				<p>This is the content of Card 5.</p> 
-			</div> 
-			<div class="card"> 
-				<img src= 
-"https://media.geeksforgeeks.org/img-practice/banner/dsa-to-development-coding-guide-thumbnail.png?v=19630"
-					alt="Image 6"> 
-				<h3>dsa to development coding guide</h3> 
-				<p>This is the content of Card 6.</p> 
-			</div> 
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="blog-heading">All blog posts</h1>
+        
+        <!-- Page 1 Posts -->
+        <div id="page1" class="row page-posts active">
+            <!-- Blog Post 1 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="asstes\img\Image (1).png" class="card-img-top" alt="Mountain landscape">
+                    <div class="card-body">
+                        <div class="author-date">Alex Whitman • 17 Jan 2022</div>
+                        <h5 class="card-title">Bill Walsh leadership lessons <span class="arrow-icon" ><img src="asstes\img\Icon (9).png" alt=""></span></h5>
+                        <p class="card-text">Like to know the secrets of leadership? A 2-14 team into a 3x Super Bowl winning Dynasty?</p>
+                        <a href="https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-leadership"
+              class="tag leadership">leadership</a>
+            <a href="https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-leadership"
+              class="tag tools">Tools</a>
+                    </div>
+                </div>
+            </div>
             
-			<!-- Add more cards as needed -->
-		</div> 
-	</div> 
+            <!-- Blog Post 2 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="asstes\img\Image (2).png" class="card-img-top" alt="Meeting with sticky notes">
+                    <div class="card-body">
+                        <div class="author-date">Dana Wilkinson • 16 Jan 2022</div>
+                        <h5 class="card-title">PM mental models <span class="arrow-icon"><img src="asstes\img\Icon (9).png" alt=""></span></h5>
+                        <p class="card-text">Mental models are simple expressions of complex processes or relationships.</p>
+                        <a href="https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-leadership"
+                            class="tag product">Product</a>
+                        <a href="https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-leadership"
+                            class="tag research">Research</a>
+                        <a href="https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-leadership"
+                            class="tag frameworks">Frameworks</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Blog Post 3 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="asstes\img\Image (3).png" class="card-img-top" alt="Computer desk setup">
+                    <div class="card-body">
+                        <div class="author-date">Caroline Wu • 15 Jan 2022</div>
+                        <h5 class="card-title">What is Wireframing? <span class="arrow-icon"><img src="asstes\img\Icon (9).png" alt=""></span></h5>
+                        <p class="card-text">Introduction to Wireframing and its Principles. Learn from the best in the industry.</p>
+                        <a href="https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-leadership"
+              class="tag design">Design</a>
+            <a href="https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-leadership"
+              class="tag research">Research</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Blog Post 4 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="asstes\img\Image (4).png" class="card-img-top" alt="Person sketching">
+                    <div class="card-body">
+                        <div class="author-date">Niall Craig • 14 Jan 2022</div>
+                        <h5 class="card-title">How collaboration makes us better designers <span class="arrow-icon"><img src="asstes\img\Icon (9).png" alt=""></span></h5>
+                        <p class="card-text">Collaboration can make our teams stronger and our individual designs better.</p>
+                        <a href="https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-leadership"
+                            class="tag design">Design</a>
+                       
+                        <a href="https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-leadership"
+                            class="tag frameworks">Frameworks</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Blog Post 5 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="asstes\img\Image (5).png" class="card-img-top" alt="Person at laptop">
+                    <div class="card-body">
+                        <div class="author-date">Drew Clary • 13 Jan 2022</div>
+                        <h5 class="card-title">Our top 10 Javascript frameworks to use <span class="arrow-icon"><img src="asstes\img\Icon (9).png" alt=""></span></h5>
+                        <p class="card-text">JavaScript frameworks create development easy with extensive features and functionalities.</p>
+                        <a href="https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-leadership"
+                        class="tag software">software development</a>
+                    
+                    <a href="https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-leadership"
+                        class="tag frameworks">Frameworks</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Blog Post 6 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="asstes\img\Image (6).png" class="card-img-top" alt="Person with laptop">
+                    <div class="card-body">
+                        <div class="author-date">Orianna Diggs • 12 Jan 2022</div>
+                        <h5 class="card-title">Podcast: Creating a better CX Community <span class="arrow-icon"><img src="asstes\img\Icon (9).png" alt=""></span></h5>
+                        <p class="card-text">Creating a community doesn't need to be complicated, but how do you get started?</p>
+                        <a href="https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-leadership"
+                        class="tag product">Product</a>
+                    <a href="https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-leadership"
+                        class="tag research">Research</a>
+                    <a href="https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-leadership"
+                        class="tag frameworks">Frameworks</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Page 2 Posts -->
+        <div id="page2" class="row page-posts">
+            <!-- Blog Post 7 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="asstes\img\Image (6).png" class="card-img-top" alt="Design workshop">
+                    <div class="card-body">
+                        <div class="author-date">Jamie Lawrence • 11 Jan 2022</div>
+                        <h5 class="card-title">Design systems at scale <span class="arrow-icon"><img src="asstes\img\Icon (9).png" alt=""></span></h5>
+                        <p class="card-text">How to build and maintain design systems that grow with your organization.</p>
+                        <a href="https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-leadership"
+                        class="tag product">Product</a>
+                    <a href="https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-leadership"
+                        class="tag research">Research</a>
+                    <a href="https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-leadership"
+                        class="tag frameworks">Frameworks</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Blog Post 8 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="asstes\img\Image (5).png" class="card-img-top" alt="Data visualization">
+                    <div class="card-body">
+                        <div class="author-date">Morgan Chen • 10 Jan 2022</div>
+                        <h5 class="card-title">Data visualization best practices <span class="arrow-icon"><img src="asstes\img\Icon (9).png" alt=""></span></h5>
+                        <p class="card-text">Turn complex data into clear, compelling visuals that tell a story.</p>
+                        <a href="https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-leadership"
+                        class="tag product">Product</a>
+                   
+                    <a href="https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-leadership"
+                        class="tag frameworks">Frameworks</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Blog Post 9 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="asstes\img\Image (4).png" class="card-img-top" alt="Team meeting">
+                    <div class="card-body">
+                        <div class="author-date">Taylor Kim • 9 Jan 2022</div>
+                        <h5 class="card-title">Remote work communication tips <span class="arrow-icon"><img src="asstes\img\Icon (9).png" alt=""></span></h5>
+                        <p class="card-text">Strategies to keep your team connected and productive while working remotely.</p>
+                     
+                        <a href="https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-leadership"
+                            class="tag research">Research</a>
+                        <a href="https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-leadership"
+                            class="tag frameworks">Frameworks</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Blog Posts for Page 2 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="asstes\img\Image (3).png" class="card-img-top" alt="Code editor">
+                    <div class="card-body">
+                        <div class="author-date">Zara Patel • 8 Jan 2022</div>
+                        <h5 class="card-title">Improving code quality with tests <span class="arrow-icon"><img src="asstes\img\Icon (9).png" alt=""></span></h5>
+                        <p class="card-text">How testing can lead to more maintainable and reliable code.</p>
+                        <a href="https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-leadership"
+                        class="tag product">Product</a>
+                    <a href="https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-leadership"
+                        class="tag research">Research</a>
+                   
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="asstes\img\Image (2).png" class="card-img-top" alt="UI design">
+                    <div class="card-body">
+                        <div class="author-date">Leo Torres • 7 Jan 2022</div>
+                        <h5 class="card-title">UI design trends for 2022 <span class="arrow-icon"><img src="asstes\img\Icon (9).png" alt=""></span></h5>
+                        <p class="card-text">Emerging patterns and styles that are shaping the future of interface design.</p>
+                        <a href="https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-leadership"
+                        class="tag product">Product</a>
+                    <a href="https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-leadership"
+                        class="tag research">Research</a>
+                    <a href="https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-leadership"
+                        class="tag frameworks">Frameworks</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="asstes\img\Image (1).png" class="card-img-top" alt="Product roadmap">
+                    <div class="card-body">
+                        <div class="author-date">Priya Sharma • 6 Jan 2022</div>
+                        <h5 class="card-title">Building effective product roadmaps <span class="arrow-icon"><img src="asstes\img\Icon (9).png" alt=""></span></h5>
+                        <p class="card-text">Create roadmaps that align teams and drive product success.</p>
+                        <a href="https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-leadership"
+                            class="tag product">Product</a>
+                        
+                        <a href="https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-leadership"
+                            class="tag frameworks">Frameworks</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        </div>
+        
+        <!-- Pagination -->
+        <div class="d-flex justify-content-center mt-4">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li class="page-item" id="prev-page">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">← Previous</span>
+                        </a>
+                    </li>
+                    <li class="page-item active" data-page="1"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item" data-page="2"><a class="page-link" href="#">2</a></li>
+                    
+                    <li class="page-item" id="next-page">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">Next →</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
 
-	<div class="pagination" id="pagination"> 
-		<a href="#" id="prev">Previous</a> 
-		<a href="#" class="page-link" data-page="1">1</a> 
-		<a href="#" class="page-link" data-page="2">2</a> 
-		<a href="#" class="page-link" data-page="3">3</a> 
-		<a href="#" id="next">Next</a> 
-		<p id="page-numbers"> </p> 
-	</div> 
-
-	<script> 
-        //script.js 
-const cardsPerPage = 6; // Number of cards to show per page 
-const dataContainer = document.getElementById('data-container'); 
-const pagination = document.getElementById('pagination'); 
-const prevButton = document.getElementById('prev'); 
-const nextButton = document.getElementById('next'); 
-const pageNumbers = document.getElementById('page-numbers'); 
-const pageLinks = document.querySelectorAll('.page-link'); 
-
-const cards = 
-	Array.from(dataContainer.getElementsByClassName('card')); 
-
-// Calculate the total number of pages 
-const totalPages = Math.ceil(cards.length / cardsPerPage); 
-let currentPage = 1; 
-
-// Function to display cards for a specific page 
-function displayPage(page) { 
-	const startIndex = (page - 1) * cardsPerPage; 
-	const endIndex = startIndex + cardsPerPage; 
-	cards.forEach((card, index) => { 
-		if (index >= startIndex && index < endIndex) { 
-			card.style.display = 'block'; 
-		} else { 
-			card.style.display = 'none'; 
-		} 
-	}); 
-} 
-
-// Function to update pagination buttons and page numbers 
-function updatePagination() { 
-	pageNumbers.textContent = 
-		`Page ${currentPage} of ${totalPages}`; 
-	prevButton.disabled = currentPage === 1; 
-	nextButton.disabled = currentPage === totalPages; 
-	pageLinks.forEach((link) => { 
-		const page = parseInt(link.getAttribute('data-page')); 
-		link.classList.toggle('active', page === currentPage); 
-	}); 
-} 
-
-// Event listener for "Previous" button 
-prevButton.addEventListener('click', () => { 
-	if (currentPage > 1) { 
-		currentPage--; 
-		displayPage(currentPage); 
-		updatePagination(); 
-	} 
-}); 
-
-// Event listener for "Next" button 
-nextButton.addEventListener('click', () => { 
-	if (currentPage < totalPages) { 
-		currentPage++; 
-		displayPage(currentPage); 
-		updatePagination(); 
-	} 
-}); 
-
-// Event listener for page number buttons 
-pageLinks.forEach((link) => { 
-	link.addEventListener('click', (e) => { 
-		e.preventDefault(); 
-		const page = parseInt(link.getAttribute('data-page')); 
-		if (page !== currentPage) { 
-			currentPage = page; 
-			displayPage(currentPage); 
-			updatePagination(); 
-		} 
-	}); 
-}); 
-
-// Initial page load 
-displayPage(currentPage); 
-updatePagination();
-
-    </script> 
-
-</body> 
-
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript for Pagination -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all pagination elements
+            const pageItems = document.querySelectorAll('.pagination .page-item[data-page]');
+            const prevButton = document.getElementById('prev-page');
+            const nextButton = document.getElementById('next-page');
+            
+            // Get all page content elements
+            const pageContents = document.querySelectorAll('.page-posts');
+            
+            // Current active page
+            let currentPage = 1;
+            
+            // Function to update pagination
+            function updatePagination() {
+                // Update page items
+                pageItems.forEach(item => {
+                    const pageNum = parseInt(item.getAttribute('data-page'));
+                    if (pageNum === currentPage) {
+                        item.classList.add('active');
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+                
+                // Update page content visibility
+                pageContents.forEach((content, index) => {
+                    if (index + 1 === currentPage) {
+                        content.classList.add('active');
+                    } else {
+                        content.classList.remove('active');
+                    }
+                });
+                
+                // Update prev/next buttons
+                if (currentPage === 1) {
+                    prevButton.classList.add('disabled');
+                } else {
+                    prevButton.classList.remove('disabled');
+                }
+                
+                if (currentPage === pageContents.length) {
+                    nextButton.classList.add('disabled');
+                } else {
+                    nextButton.classList.remove('disabled');
+                }
+                
+                // Scroll to top of page
+                window.scrollTo(0, 0);
+            }
+            
+            // Add click event to page items
+            pageItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    currentPage = parseInt(this.getAttribute('data-page'));
+                    updatePagination();
+                });
+            });
+            
+            // Add click event to prev button
+            prevButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (currentPage > 1) {
+                    currentPage--;
+                    updatePagination();
+                }
+            });
+            
+            // Add click event to next button
+            nextButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (currentPage < pageContents.length) {
+                    currentPage++;
+                    updatePagination();
+                }
+            });
+            
+            // Initial pagination setup
+            updatePagination();
+        });
+    </script>
+</body>
 </html>

@@ -290,138 +290,109 @@ height: 228px;
 /* all blog section start */
 
 
-    .blog-card {
-        background: white;
-        border-radius: 10px; 
-        overflow: hidden; 
-        
-        transition: transform 0.2s ease-in-out;
-        margin-bottom: 40px;
-    }
+.blog-heading {
+    padding: 20px 0;
+    font-weight: 700;
+}
 
-    .blog-card:hover {
-        transform: translateY(5px);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
-    } 
+.card {
+    border: none;
+    border-radius: 0;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
 
-    .img-fluid {
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-    }
-    .fw-bold{
-        font-family: Inter;
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    border-radius: 0;
+    height: 200px;
+    object-fit: cover;
+}
+
+.author-date {
+    font-size: 0.8rem;
+    color: #6941C6;
+    margin-bottom: 5px;
+}
+
+.card-title {
     font-weight: 600;
-    font-size: 20px;
-    line-height: 32px;
-    letter-spacing: 0%;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #101828;
+}
 
-    }
-    .ptxt{ font-family: Inter;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 24px;
-        letter-spacing: 0%;
-        color: #667085;
-        }
-    .meta {
-        color: #7d7d7d;
-        font-size: 14px;
-    }
+.card-text {
+    font-size: 0.9rem;
+    color: #667085;
+}
 
-    .arrow {
-        float: right;
-    }
+.tag {
+    display: inline-block;
+    padding: 4px 12px;
+    margin-right: 6px;
+    margin-top: 10px;
+    background-color: #f8f9fa;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: #495057;
+}
 
-    .tag {
-        display: inline-block;
-        padding: 5px 10px;
-        font-size: 14px;
-        border-radius: 5px;
-        margin-top: 5px;
-        text-decoration: none;
-        
-    }
+.arrow-icon {
+    margin-left: 5px;
+    font-size: 0.8rem;
+}
 
-    .management { background: #e0f2ff; color: #007bff; }
-    .leadership { background: #f0e0ff; color: #6a0dad; }
-    .product { background: #dfffe0; color: #2c7a2c; }
-    .research { background: #f0e0ff; color: #6a0dad; }
-    .frameworks { background: #ffe0e0; color: #d9534f; }
-    .design { background: #e0f2ff; color: #007bff; }
-    .software { background: #e5ffcc; color: #2c7a2c; }
-    .tools { background: #ffe5cc; color: #d9534f; }
-    .saas { background: #e0e0ff; color: #6a0dad; }
-    .podcasts { background: #ccf2ff; color: #007bff; }
-    .customer { background: #f2ccff; color: #6a0dad; }
-    .pagination {
-        text-align: center;
-        margin-top: 2rem;
-    }
-    
-    .pagination a {
-        color: #007BFF;
-        padding: 8px 16px;
-        text-decoration: none;
-        border: 1px solid #007BFF;
-        margin: 0 5px;
-        border-radius: 4px;
-    }
-    
-    .pagination a:hover {
-        background-color: #007BFF;
-        color: white;
-    }
-    
-    .pagination .active {
-        background-color: #007BFF;
-        color: white;
-    }
-    
-    .card-container {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-    }
-    
-    .card {
-        border: 1px solid #ddd;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 2px 20px 0px rgba(0, 0, 0, 0.1);
-        background-color: #fff;
-        text-align: center;
-    }
-    
-    .card img {
-        max-width: 100%;
-        height: auto;
-        margin-bottom: 10px;
-        border-radius: 10px;
-    }
-    
-    h3 {
-        margin-top: 10px;
-        font-size: 18px;
-        text-transform: capitalize;
-    }
-    
-    h1 {
-        text-align: center;
-        margin: 2rem;
-    }
-    
-    p {
-        font-size: 14px;
-    }
-    
-    #page-numbers {
-        margin-top: 20px;
-        font-size: 16px;
-    }
-    
+.pagination {
+    margin-top: 20px;
+}
+
+.page-link {
+    color: #212529;
+    border: none;
+    padding: 8px 16px;
+}
+
+.page-item.active .page-link {
+    background-color: #212529;
+    border-color: #212529;
+}
+
+.page-posts {
+    display: none;
+}
+
+.page-posts.active {
+    display: flex;
+}
+.tag {
+display: inline-block;
+padding: 5px 10px;
+font-size: 14px;
+border-radius: 5px;
+margin-top: 5px;
+text-decoration: none;
+
+}
+.arrow-icon {
+float: right;
+}
+
+.management { background: #e0f2ff; color: #007bff; }
+.leadership { background: #f0e0ff; color: #6a0dad; }
+.product { background: #dfffe0; color: #2c7a2c; }
+.research { background: #f0e0ff; color: #6a0dad; }
+.frameworks { background: #ffe0e0; color: #d9534f; }
+.design { background: #e0f2ff; color: #007bff; }
+.software { background: #e5ffcc; color: #2c7a2c; }
+.tools { background: #ffe5cc; color: #d9534f; }
+.saas { background: #e0e0ff; color: #6a0dad; }
+.podcasts { background: #ccf2ff; color: #007bff; }
+.customer { background: #f2ccff; color: #6a0dad; }
 
 /* all blog section end */
 
